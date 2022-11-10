@@ -1,0 +1,143 @@
+﻿@model List<RecuperacionMVC.Models.Operacion>
+@{
+    ViewBag.Title = "Operaciones Tipo";
+    int id = 1;
+    int contSuma = 0;
+    int contResta = 0;
+    int contMulti = 0;
+    int contDiv = 0;
+
+
+
+
+}
+
+
+<div class="row">
+    <table class="table" >
+        <thead>
+            <tr>
+
+                <th style="width:50px; ">Nro</th>
+                <th style="width:200px; ">Tipo</th>
+                <th style="width:80px; ">numero1</th>
+                <th style="width:90px; ">numero2</th>
+                <th style="width:80px; ">resultado</th>
+                <th style="width:80px; ">fecha</th>
+                <th style="width:80px; ">hora</th>
+       
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var m in Model.Where(x => x.TipoOperacion.nombre.Equals("Suma")))
+            {
+                contSuma++;
+                <tr>
+                    <td>@(id++)</td>
+                    <td>@(m.TipoOperacion.nombre)</td>
+                    <td>@(m.numero1)</td>
+                    <td>@(m.numero2)</td>
+                    <td>@(m.resultado)</td>
+                    <td>@(m.fecha)</td>
+                    <td>@(m.hora)</td>
+
+                </tr>
+            }
+            <tr style="font-weight: bold;">
+                <td></td>
+                <td>N Registros</td>
+                <td>@(contSuma)</td>
+                <td>Porcentaje</td>
+                <td>@((contSuma*100)/Model.Count())</td>
+                <td></td>
+                <td></td>
+
+            </tr>
+
+            @foreach (var m in Model.Where(x => x.TipoOperacion.nombre.Equals("Resta")))
+            {
+                contResta++;
+                <tr>
+                    <td>@(id++)</td>
+                    <td>@(m.TipoOperacion.nombre)</td>
+                    <td>@(m.numero1)</td>
+                    <td>@(m.numero2)</td>
+                    <td>@(m.resultado)</td>
+                    <td>@(m.fecha)</td>
+                    <td>@(m.hora)</td>
+
+                </tr>
+            }
+            <tr style="font-weight: bold;">
+                <td></td>
+                <td>N Registros</td>
+                <td>@(contResta)</td>
+                <td>Porcentaje</td>
+                <td>@((contResta * 100)/Model.Count())</td>
+                <td></td>
+                <td></td>
+
+            </tr>
+            @foreach (var m in Model.Where(x => x.TipoOperacion.nombre.Equals("Multiplicación")))
+            {
+                contMulti++;
+                <tr>
+                    <td>@(id++)</td>
+                    <td>@(m.TipoOperacion.nombre)</td>
+                    <td>@(m.numero1)</td>
+                    <td>@(m.numero2)</td>
+                    <td>@(m.resultado)</td>
+                    <td>@(m.fecha)</td>
+                    <td>@(m.hora)</td>
+
+                </tr>
+            }
+            <tr style="font-weight: bold;">
+                <td></td>
+                <td>N Registros</td>
+                <td>@(contMulti)</td>
+                <td>Porcentaje</td>
+                <td>@((contMulti * 100)/Model.Count())</td>
+                <td></td>
+                <td></td>
+
+            </tr>
+            @foreach (var m in Model.Where(x => x.TipoOperacion.nombre.Equals("División")))
+            {
+                contDiv++;
+                <tr>
+                    <td>@(id++)</td>
+                    <td>@(m.TipoOperacion.nombre)</td>
+                    <td>@(m.numero1)</td>
+                    <td>@(m.numero2)</td>
+                    <td>@(m.resultado)</td>
+                    <td>@(m.fecha)</td>
+                    <td>@(m.hora)</td>
+
+                </tr>
+            }
+            <tr style="font-weight: bold;">
+                <td></td>
+                <td>N Registros</td>
+                <td>@(contDiv)</td>
+                <td>Porcentaje</td>
+                <td>@((contDiv * 100)/Model.Count())</td>
+                <td></td>
+                <td></td>
+
+            </tr>
+            <tr style="font-weight: bold;color:red">
+                <td></td>
+                <td>Total de  Registros</td>
+                <td>@(Model.Count())</td>
+                <td>Porcentaje</td>
+                <td>100%</td>
+                <td></td>
+                <td></td>
+
+            </tr>
+        </tbody>
+    </table>
+</div>
+

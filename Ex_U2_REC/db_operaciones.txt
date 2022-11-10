@@ -1,0 +1,31 @@
+CREATE DATABASE db_operaciones
+go
+USE db_operaciones
+go
+
+
+if (not exists(select 1 from sys.tables where name = 'TipoOperacion'))
+    CREATE TABLE dbo.TipoOperacion (
+       tipooperacion_id  int identity(1,1) NOT NULL,
+       nombre        varchar(250) NOT NULL,       
+	   estado        char(10)       
+       PRIMARY KEY (tipooperacion_id)
+)
+go
+
+
+if (not exists(select 1 from sys.tables where name = 'Operacion'))
+    CREATE TABLE dbo.Operacion (
+       operacion_id		int identity(1,1) NOT NULL,	   
+       numero1	int NOT NULL,
+       numero2	int NOT NULL,
+	   tipooperacion_id	int NOT NULL,
+	   resultado int NOT NULL,
+	   fecha	date NULL,
+	   hora		time NOT NULL,	   
+	   estado	char(10)       
+       PRIMARY KEY (operacion_id),
+	   FOREIGN KEY (tipooperacion_id) REFERENCES TipoOperacion
+)
+go
+

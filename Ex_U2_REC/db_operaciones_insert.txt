@@ -1,0 +1,24 @@
+use db_operaciones;
+go
+
+insert into dbo.TipoOperacion (nombre, estado) values ('Suma', 'A')
+insert into dbo.TipoOperacion (nombre, estado) values ('Resta', 'A')
+insert into dbo.TipoOperacion (nombre, estado) values ('Multiplicación', 'A')
+insert into dbo.TipoOperacion (nombre, estado) values ('División', 'A')
+go
+
+insert Into dbo.Operacion(numero1, numero2, tipooperacion_id, resultado, fecha, hora, estado) values (5,4,1,9,GETDATE(),SYSDATETIME(), 'A')
+insert Into dbo.Operacion(numero1, numero2, tipooperacion_id, resultado, fecha, hora, estado) values (2,5,3,10,GETDATE(),SYSDATETIME(), 'A')
+insert Into dbo.Operacion(numero1, numero2, tipooperacion_id, resultado, fecha, hora, estado) values (3,2,1,1,GETDATE(),SYSDATETIME(), 'A')
+insert Into dbo.Operacion(numero1, numero2, tipooperacion_id, resultado, fecha, hora, estado) values (5,5,4,1,GETDATE(),SYSDATETIME(), 'A')
+insert Into dbo.Operacion values (8,5,1,13,GETDATE(),SYSDATETIME(), 'A')
+insert Into dbo.Operacion values (10,5,3,50,GETDATE(),SYSDATETIME(), 'A')
+insert Into dbo.Operacion values (100,70,2,30,GETDATE(),SYSDATETIME(), 'A')
+insert Into dbo.Operacion values (6,6,1,12,GETDATE(),SYSDATETIME(), 'A')
+insert Into dbo.Operacion values (45,5,1,50,GETDATE(),SYSDATETIME(), 'A')
+insert Into dbo.Operacion values (7,7,3,49,GETDATE(),SYSDATETIME(), 'A')
+go
+
+select * from TipoOperacion
+select * from Operacion
+go
